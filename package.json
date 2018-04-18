@@ -1,0 +1,35 @@
+{
+  "name": "micro-ts-example",
+  "version": "1.0.0",
+  "description": "An example microservice written in Micro + TypeScript.",
+  "main": "./lib/index.js",
+  "repository": "https://github.com/resir014/micro-ts-example.git",
+  "author": "Resi Respati <resir014@gmail.com>",
+  "license": "Unlicense",
+  "private": true,
+  "scripts": {
+    "build": "rimraf lib && tsc",
+    "dev": "npm run build && concurrently \"tsc --watch\" \"micro-dev\"",
+    "dev-start": "npm run build && micro-dev",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\" && npm run lint:fix",
+    "lint": "tslint 'src/**/*.{ts,tsx}'",
+    "lint:fix": "tslint --fix 'src/**/*.{ts,tsx}'",
+    "start": "npm run build && micro"
+  },
+  "dependencies": {
+    "micro": "^9.1.4",
+    "microrouter": "^3.1.2"
+  },
+  "devDependencies": {
+    "@types/micro": "^7.3.1",
+    "@types/microrouter": "^2.2.2",
+    "@types/node": "^9.6.5",
+    "concurrently": "^3.5.1",
+    "micro-dev": "^2.2.2",
+    "prettier": "^1.12.1",
+    "rimraf": "^2.6.2",
+    "tslint": "^5.9.1",
+    "tslint-config-blvd": "github:blvdgroup/tslint-config-blvd",
+    "typescript": "^2.8.1"
+  }
+}
